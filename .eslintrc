@@ -211,7 +211,7 @@
   },
   "settings": {
     "react": {
-       "version": "7.18"
+       "version": "detect"
     }
   },
   "globals": {
