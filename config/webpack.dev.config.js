@@ -1,13 +1,12 @@
-const path = require('path');
-const {merge} = require('webpack-merge');
-const common = require('./webpack.common.config.js');
+const {merge} = require('webpack-merge')
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const common = require('./webpack.common.config')
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: "eval-cheap-module-source-map",
+  devtool: 'eval-cheap-module-source-map',
   output: {
     // 用了热更新到处不能使用chunk hash要使用hash
     // 因为开发阶段
@@ -20,16 +19,16 @@ module.exports = merge(common, {
     port: 9000,
     compress: false,
     // 热更新
-    hot: true
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       inject: 'body',
-      hash: false
+      hash: false,
     }),
     // 热更新插件
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
@@ -39,7 +38,7 @@ module.exports = merge(common, {
           'style-loader', 
           'css-loader',
           // 'postcss-loader'
-        ]
+        ],
       },
       {
         test: /\.less$/,
@@ -47,8 +46,8 @@ module.exports = merge(common, {
           'style-loader',
           'css-loader',
           // 'postcss-loader',
-          'less-loader'
-        ]
+          'less-loader',
+        ],
       },
       {
         test: /\.(sass|scss)$/,
@@ -56,13 +55,13 @@ module.exports = merge(common, {
           'style-loader',
           'css-loader',
           // 'postcss-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
-    ]
+    ],
   },
   optimization: {
     // webpack5的时候热更新失败，加上这个就好了，迷茫
-    runtimeChunk: 'single'
-  }
-});
+    runtimeChunk: 'single',
+  },
+})

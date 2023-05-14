@@ -200,9 +200,10 @@
     "react/jsx-one-expression-per-line": [
       "off"
     ],
-    "react/jsx-closing-bracket-location":  [
+    "react/jsx-closing-bracket-location": [
       "off"
     ],
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }],
     "no-nested-ternary": 0,
     "no-plusplus": 0,
     "jsx-a11y/href-no-hash": 0,
@@ -210,7 +211,7 @@
   },
   "settings": {
     "react": {
-       "version": "detect"
+       "version": "7.18"
     }
   },
   "globals": {

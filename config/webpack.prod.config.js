@@ -1,8 +1,8 @@
-const {merge} = require('webpack-merge');
-const common = require('./webpack.common.config.js');
-const  HtmlWebpackPlugin  = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {merge} = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const common = require('./webpack.common.config')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -31,7 +31,7 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       chunkFilename: 'css/[id].[hash].css',
-    })
+    }),
   ],
   module: {
     rules: [
@@ -40,8 +40,8 @@ module.exports = merge(common, {
         use: [ 
           MiniCssExtractPlugin.loader, 
           'css-loader',
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.less$/,
@@ -49,8 +49,8 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'less-loader'
-        ]
+          'less-loader',
+        ],
       },
       {
         test: /\.(sass|scss)$/,
@@ -58,10 +58,10 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
-    ]
+    ],
   },
   optimization: {
     splitChunks: {
@@ -72,18 +72,18 @@ module.exports = merge(common, {
       cacheGroups: {
         // 和入口名字匹配，将framework抽出
         framework: {
-          test: "framework",
-          name: "framework",
-          enforce: true
+          test: 'framework',
+          name: 'framework',
+          enforce: true,
         },
         // 将node_modules缓存抽出
         vendors: {
           priority: -10,
           test: /node_modules/,
-          name: "vendor",
+          name: 'vendor',
           enforce: true,
         },
-      }
-    }
+      },
+    },
   },
-});
+})

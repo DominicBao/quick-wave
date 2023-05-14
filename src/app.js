@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 import './app.less'
-import background from './images/1.jpg';
+import background from './images/1.jpg'
 
-function App() {
+const App = () => {
   return (
-    <div className='app'>
-      <div className="text">Hello world3ee21112</div>
-      <img className="background" src={background} alt=""/>
+    <div className="app">
+      <div className="text">Hello d3ee211212</div>
+      <img className="background" src={background} alt="" />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
