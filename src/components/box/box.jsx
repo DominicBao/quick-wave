@@ -6,7 +6,7 @@ const Box = ({
   height = 0,
 }) => {
   return <div className="box" style={{width: `${width}px`, height: `${height}px`}}>
-    <span>这是一个box</span>
+    <span className="no-event">这是一个box</span>
   </div>
 }
 
