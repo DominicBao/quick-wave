@@ -2,6 +2,7 @@ import React from 'react'
 import {DndProvider} from 'react-dnd'
 import {HTML5Backend} from 'react-dnd-html5-backend'
 import Screen from '../../components/screen'
+import List from '../../components/list'
 import './main.less'
 
 // 使用DndProvider的一个注意点
@@ -9,6 +10,7 @@ import './main.less'
 const Main = () => {
   return <div className="main">
     <DndProvider backend={HTML5Backend}>
+      <List />
       <Screen />
     </DndProvider>
   </div>

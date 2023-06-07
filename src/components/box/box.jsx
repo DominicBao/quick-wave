@@ -19,6 +19,7 @@ const Box = ({
       }
     },
   }), [x, y, id])
+
   return <div ref={drag} className="box" style={{width: `${width}px`, height: `${height}px`, left: `${x}px`, top: `${y}px`}}>
     <span className="no-event">这是一个box</span>
   </div>
